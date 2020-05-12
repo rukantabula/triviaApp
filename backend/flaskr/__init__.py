@@ -191,7 +191,7 @@ def create_app(test_config=None):
   @app.route('/categories/<int:category_id>/questions', methods=['GET'])
   @cross_origin()
   def get_questions_by_category(category_id):
-    questions = Question.query.filter(Question.category == category_id).all()
+    questions = Question.query.filter(Question.category == category_id + 1).all()
     if len(questions) == 0:
       abort(404)
 
@@ -217,7 +217,7 @@ def create_app(test_config=None):
     body = request.get_json()
     previous_questions = body['previous_questions']
     quiz_category = body['quiz_category']
-    questions = Question.query.filter(Question.category == quiz_category['id']).all()
+    questions = Question.query.filter(Question.category == int(quiz_category['id']) + 1).all()
     if len(questions) == 0:
       abort(404)
 

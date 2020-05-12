@@ -1,4 +1,6 @@
 # Full Stack Trivia API Backend
+This project is a meant to create social bonding experience for udacity employees and students via a Trivia game experience.
+Users would be to both add questions and specificy the difficulty level and question's category and play and enoy the game!
 
 ## Getting Started
 
