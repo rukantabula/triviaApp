@@ -78,7 +78,7 @@ Base URL: At present this app can only be run locally and is not hosted as a bas
 
 Authentication: This version of the application does not require authentication or API keys.
 
-# Error Handling
+## Error Handling
 
 Errors are returned as JSON objects in the following format:
 
@@ -90,7 +90,7 @@ Errors are returned as JSON objects in the following format:
 }
 ```
 
-# The API will return three error types when requests fail:
+## The API will return three error types when requests fail:
 
 400: Bad Request
 404: Resource Not Found
@@ -99,7 +99,7 @@ Errors are returned as JSON objects in the following format:
 
 
 ## Endpoints
-# GET/questions
+## GET/questions
 
 The endpoint handles requests for questions, including pagination (every 10 questions). This endpoint returns a list of questions, number of total questions, current category, categories. 
 
