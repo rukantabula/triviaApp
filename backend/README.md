@@ -90,16 +90,9 @@ Errors are returned as JSON objects in the following format:
 }
 ```
 
-## The API will return three error types when requests fail:
-
-400: Bad Request
-404: Resource Not Found
-422: Not Processable
-500: Server Error
-
 
 ## Endpoints
-## GET/questions
+### GET/questions
 
 The endpoint handles requests for questions, including pagination (every 10 questions). This endpoint returns a list of questions, number of total questions, current category, categories. 
 
