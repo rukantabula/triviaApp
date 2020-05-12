@@ -78,7 +78,8 @@ Base URL: At present this app can only be run locally and is not hosted as a bas
 
 Authentication: This version of the application does not require authentication or API keys.
 
-Error Handling
+# Error Handling
+
 Errors are returned as JSON objects in the following format:
 
 ```
@@ -87,6 +88,47 @@ Errors are returned as JSON objects in the following format:
     "error": 400,
     "message": "bad request"
 }
+```
+
+# The API will return three error types when requests fail:
+
+400: Bad Request
+404: Resource Not Found
+422: Not Processable
+500: Server Error
+
+
+## Endpoints
+# GET/questions
+
+The endpoint handles requests for questions, including pagination (every 10 questions). This endpoint returns a list of questions, number of total questions, current category, categories. 
+
+url: http://127.0.0.1:5000/questions
+
+```
+{
+  "categories": [
+    "Science",
+    "Art",
+    "Geography",
+    "History",
+    "Entertainment",
+    "Sports"
+  ],
+  "questions": [
+    {
+      "answer": "Brazil",
+      "category": 6,
+      "difficulty": 3,
+      "id": 10,
+      "question": "Which is the only team to play in every soccer World Cup tournament?"
+    }
+    ...
+  ],
+  "success": true,
+  "total_questions": 21
+}
+
 ```
 
 ```
