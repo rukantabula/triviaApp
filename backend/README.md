@@ -1,4 +1,5 @@
 # Full Stack Trivia API Backend
+
 This project is a meant to create social bonding experience for udacity employees and students via a Trivia game experience.
 Users would be to both add questions and specificy the difficulty level and question's category and play and enoy the game!
 
@@ -68,7 +69,26 @@ One note before you delve into your tasks: for each endpoint you are expected to
 8. Create a POST endpoint to get questions to play the quiz. This endpoint should take category and previous question parameters and return a random questions within the given category, if provided, and that is not one of the previous questions. 
 9. Create error handlers for all expected errors including 400, 404, 422 and 500. 
 
-REVIEW_COMMENT
+
+These commands put the application in development and directs our application to use the __init__.py file in our flaskr folder. Working in development mode shows an interactive debugger in the console and restarts the server whenever changes are made. If running locally on Windows, look for the commands in the Flask documentation.
+
+## API Reference
+
+Base URL: At present this app can only be run locally and is not hosted as a base URL. The backend app is hosted at the default, http://127.0.0.1:5000/, which is set as a proxy in the frontend configuration.
+
+Authentication: This version of the application does not require authentication or API keys.
+
+Error Handling
+Errors are returned as JSON objects in the following format:
+
+```
+{
+    "success": False, 
+    "error": 400,
+    "message": "bad request"
+}
+```
+
 ```
 This README is missing documentation of your endpoints. Below is an example for your endpoint to get all categories. Please use it as a reference for creating your documentation and resubmit your code. 
 
