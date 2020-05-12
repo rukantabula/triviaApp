@@ -72,6 +72,28 @@ One note before you delve into your tasks: for each endpoint you are expected to
 
 These commands put the application in development and directs our application to use the __init__.py file in our flaskr folder. Working in development mode shows an interactive debugger in the console and restarts the server whenever changes are made. If running locally on Windows, look for the commands in the Flask documentation.
 
+```
+This README is missing documentation of your endpoints. Below is an example for your endpoint to get all categories. Please use it as a reference for creating your documentation and resubmit your code. 
+
+Endpoints
+GET '/categories'
+GET ...
+POST ...
+DELETE ...
+
+GET '/categories'
+- Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
+- Request Arguments: None
+- Returns: An object with a single key, categories, that contains a object of id: category_string key:value pairs. 
+{'1' : "Science",
+'2' : "Art",
+'3' : "Geography",
+'4' : "History",
+'5' : "Entertainment",
+'6' : "Sports"}
+
+```
+
 ## API Reference
 
 Base URL: At present this app can only be run locally and is not hosted as a base URL. The backend app is hosted at the default, http://127.0.0.1:5000/, which is set as a proxy in the frontend configuration.
@@ -92,12 +114,35 @@ Errors are returned as JSON objects in the following format:
 
 
 ## Endpoints
+### GET/categories
+
+The endpoint handles requests for available categories. 
+
+url: http://127.0.0.1:5000/categories
+
+Request Response
+```
+{
+  "categories": [
+    "Science",
+    "Art",
+    "Geography",
+    "History",
+    "Entertainment",
+    "Sports"
+  ],
+  "success": true
+}
+
+```
+
 ### GET/questions
 
 The endpoint handles requests for questions, including pagination (every 10 questions). This endpoint returns a list of questions, number of total questions, current category, categories. 
 
 url: http://127.0.0.1:5000/questions
 
+Request Response
 ```
 {
   "categories": [
@@ -124,26 +169,130 @@ url: http://127.0.0.1:5000/questions
 
 ```
 
+### DELETE/questions/{question_id}
+
+The endpoint handles requests to DELETE question using a question ID. 
+
+url: http://127.0.0.1:5000/questions/5
+
+Request Response
 ```
-This README is missing documentation of your endpoints. Below is an example for your endpoint to get all categories. Please use it as a reference for creating your documentation and resubmit your code. 
+{
+  "status": "Question deleted",
+  "success": true
+}
 
-Endpoints
-GET '/categories'
-GET ...
-POST ...
-DELETE ...
+```
 
-GET '/categories'
-- Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
-- Request Arguments: None
-- Returns: An object with a single key, categories, that contains a object of id: category_string key:value pairs. 
-{'1' : "Science",
-'2' : "Art",
-'3' : "Geography",
-'4' : "History",
-'5' : "Entertainment",
-'6' : "Sports"}
+### POST/questions
 
+The endpoint handles requests to POST a new question
+
+url: http://127.0.0.1:5000/questions
+
+Request Body: 
+```
+{
+  "question": "question",
+  "answer": "answer",
+  "category": 2,
+  "difficulty": 3
+}
+
+```
+
+Request Response
+```
+{
+  "status": "Question added",
+  "success": true
+}
+
+```
+
+### POST/questions/search
+
+The endpoint handles requests to get questions based on a search term. It returns any questions for whom the search term is a substring of the question.
+
+url: http://127.0.0.1:5000/questions/search
+
+Request Body: 
+```
+{
+  "searchTerm": "country"
+}
+
+```
+
+Request Response
+```
+{
+  "questions": [
+    {
+      "answer": "Uruguay",
+      "category": 6,
+      "difficulty": 4,
+      "id": 11,
+      "question": "Which country won the first ever soccer World Cup in 1930?"
+    }
+  ],
+  "success": true
+}
+
+```
+
+### GET/categories/{category_id}/questions
+
+The endpoint handles requests to get questions based on category. 
+
+url: http://127.0.0.1:5000/categories/4/questions
+
+Request Response
+```
+{
+  "questions": [
+    {
+      "answer": "yes",
+      "category": 5,
+      "difficulty": 1,
+      "id": 30,
+      "question": "science"
+    }
+  ],
+  "success": true
+}
+```
+
+### POST/quizzes
+
+The endpoint handles requests to get questions to play the quiz. This endpoint takes category and previous question parameters and return a random questions within the given category, if provided, and that is not one of the previous questions. 
+
+url: http://127.0.0.1:5000/quizzes
+
+Request Body: 
+```
+{
+ "previous_questions" : [],
+ "quiz_category": {
+ "type": "Geography",
+ "id": "2"
+  }
+}
+
+```
+
+Request Response
+```
+{
+  "question": {
+    "answer": "Agra",
+    "category": 3,
+    "difficulty": 2,
+    "id": 15,
+    "question": "The Taj Mahal is located in which Indian city?"
+  },
+  "success": true
+}
 ```
 
 
