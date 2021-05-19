@@ -136,6 +136,8 @@ def create_app(test_config=None):
           category = body['category'],
           difficulty = body['difficulty']
         )
+
+
       db.session.add(question)
       db.session.commit()
     except:
